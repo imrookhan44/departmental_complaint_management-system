@@ -2,13 +2,14 @@ import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import "./../../styles/Navbar.css";
 import { useNavigate, Link } from "react-router-dom";
-
+import {toast} from "react-toastify"
 function Header() {
   let navigate = useNavigate();
 
   const Logout = () => {
     localStorage.removeItem("token");
     // window.location.reload();
+    toast.success("Logout Successfully");
     navigate("/login");
     console.log("user is logout");
   };
@@ -27,7 +28,7 @@ function Header() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="me-auto my-2  my-lg-0  offset-lg-8 "
+              className="me-auto my-2  my-lg-0  offset-lg-6 "
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
@@ -52,6 +53,11 @@ function Header() {
               {localStorage.getItem("token") && (
                 <Link to="/complaint"  className="text-light" id="navLink">
                   complaint Box
+                </Link>
+              )}&nbsp;&nbsp;&nbsp;
+             {localStorage.getItem("token") && (
+                <Link to="/complaintStatus"  className="text-light" id="navLink">
+                  complaint Status
                 </Link>
               )}&nbsp;&nbsp;&nbsp;
               {localStorage.getItem("token") ? (
