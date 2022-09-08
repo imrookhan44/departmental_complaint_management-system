@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import "./../../styles/auth.css";
 import { loginUser } from "./../../Api/index";
 import { useNavigate } from "react-router-dom";
-import {  toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // toast.configure();
+const success = () => {
+  toast.success("Login Successfull");
+};
+
+const error = () => {
+  toast.error("error", {
+    theme: "colored",
+  });
+};
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -19,14 +28,10 @@ function Login() {
         console.log("res in login:", res);
         if (res.data.message === "user login successfully") {
           localStorage.setItem("token", res.data.token);
-          toast.success("User Login Successfully", {
-            theme: "colored",
-          });
+          toast.success("Login Successfully");
           navigate("/");
         } else {
-          toast.error("bad request", {
-            theme: "colored",
-          });
+          toast.error(res.message);
         }
       })
       .catch((error) => {

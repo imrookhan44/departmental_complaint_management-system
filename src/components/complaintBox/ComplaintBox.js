@@ -4,13 +4,18 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // toast.configure()
+
+const success = () => {
+  toast.success("Complaint Registered Successfully", {
+    theme: "colored",
+  });
+};
 function ComplaintBox() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [complaintType, setComplaintType] = useState("");
   const [concernedPerson, setConcernedPerson] = useState("");
   const [complaintDetail, setComplaintDetail] = useState("");
-
 
   const complaint = async () => {
     const data = {
@@ -22,26 +27,26 @@ function ComplaintBox() {
     };
     registerComplaint(data)
       .then((res) => {
-        if (res.data.message === "complaint registered successfully") {
-         toast.success("Complaint Registered Successfully");
+        // if (res.data.message === "complaint registered successfully") {
+        //   toast.success("Complaint Registered Successfully")
+        //   alert("Complaint Registered Successfully");
+        // } else {
+        //   toast.error(res.message);
+        //   alert("There is an error");
+        // }
+        if (res) {
+          success();
         } else {
-          toast.error(res.message, {
-            theme: "colored",
-          });
+          error()
         }
       })
       .catch((error) => {
         console.log(error);
         toast.error("Something went wrong", {
-          theme: "colored",
+
         });
       });
   };
-  const notify = () => {
-    toast.error("Wow so easy!");
-    alert("sjdifhdsuf")
-  }
-
 
 
   return (
@@ -93,12 +98,24 @@ function ComplaintBox() {
               <option value="" selected>
                 Choose complaint type
               </option>
-              <option className="text-dark" value="Academics">Academics</option>
-              <option className="text-dark" value="Bus">Bus</option>
-              <option className="text-dark" value="Fee">Fee</option>
-              <option className="text-dark" value="Class">Class</option>
-              <option className="text-dark" value="Teacher">Teacher</option>
-              <option className="text-dark" value="Other">Other</option>
+              <option className="text-dark" value="Academics">
+                Academics
+              </option>
+              <option className="text-dark" value="Bus">
+                Bus
+              </option>
+              <option className="text-dark" value="Fee">
+                Fee
+              </option>
+              <option className="text-dark" value="Class">
+                Class
+              </option>
+              <option className="text-dark" value="Teacher">
+                Teacher
+              </option>
+              <option className="text-dark" value="Other">
+                Other
+              </option>
             </select>
             <label className="text-light">Concerned Person</label>
             <select
@@ -147,14 +164,14 @@ function ComplaintBox() {
               >
                 Submit
               </button>
+
+      <ToastContainer />
+
             </div>
-
-
           </div>
-          <button onClick={notify}>cic</button>
+
         </div>
       </div>
-
 
     </div>
   );
