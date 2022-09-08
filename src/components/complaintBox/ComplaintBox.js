@@ -27,13 +27,7 @@ function ComplaintBox() {
     };
     registerComplaint(data)
       .then((res) => {
-        // if (res.data.message === "complaint registered successfully") {
-        //   toast.success("Complaint Registered Successfully")
-        //   alert("Complaint Registered Successfully");
-        // } else {
-        //   toast.error(res.message);
-        //   alert("There is an error");
-        // }
+
         if (res) {
           success();
         } else {
