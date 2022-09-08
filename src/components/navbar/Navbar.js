@@ -2,7 +2,9 @@ import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import "./../../styles/Navbar.css";
 import { useNavigate, Link } from "react-router-dom";
-import {toast} from "react-toastify"
+import {  toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function Header() {
   let navigate = useNavigate();
 
@@ -74,6 +76,7 @@ function Header() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <ToastContainer />
     </div>
   );
 }
