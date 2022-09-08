@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "../carousel/Carousel";
-
 import Footer from "../../components/footer/Footer";
 import Mid from "../../components/mid/Mid";
 function Home() {
-
   return (
     <div className="text-center " id="homeText">
       <Carousel />
@@ -20,10 +18,8 @@ function Home() {
         </div>
       </div>
 
-
-
-        <Mid />
-         <Footer  />
+      <Mid />
+      <Footer />
     </div>
   );
 }
