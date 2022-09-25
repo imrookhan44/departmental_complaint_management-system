@@ -31,7 +31,7 @@ function ComplaintBox() {
         if (res) {
           success();
         } else {
-          error()
+          toast.error("Something went wrong")
         }
       })
       .catch((error) => {
