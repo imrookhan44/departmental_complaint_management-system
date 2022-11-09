@@ -4,6 +4,7 @@ import { registerUser } from "./../../Api/index";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {Link} from "react-router-dom";
 function Signup() {
   let navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
@@ -108,6 +109,10 @@ function Signup() {
                 </button>
               </div>
             </div>
+            <div className="text-center mt-2">
+                <p>
+                Already Registered? <Link to="/login">Login</Link></p>
+                </div>
           </div>
         </div>
       </div>

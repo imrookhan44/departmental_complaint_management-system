@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./../../styles/auth.css";
 import { loginUser } from "./../../Api/index";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // toast.configure();
@@ -25,13 +25,13 @@ function Login() {
     };
     loginUser(data)
       .then((res) => {
-        console.log("res in login:", res);
+        console.log("res in login:", res.data.message);
         if (res.data.message === "user login successfully") {
           localStorage.setItem("token", res.data.token);
-          toast.success("Login Successfully");
+          toast.success(res.data.message);
           navigate("/");
         } else {
-          toast.error(res.message);
+          toast.error(res.data.message);
         }
       })
       .catch((error) => {
@@ -44,7 +44,7 @@ function Login() {
   return (
     <div>
       <div>
-        <div className=" mb-5">
+        <div className="mb-5">
           <div className="row mt-80">
             <div className="col-8">
               <div className="bgImage"></div>
@@ -77,7 +77,15 @@ function Login() {
                     Submit
                   </button>
                 </div>
+                <div className="d-flex justify-content-end">
+                <Link to="/forgetPassword">Forget Password</Link>
+                </div>
               </div>
+              <div className="text-center mt-2">
+                <p>
+                  Don't have an account? <Link to="/signup">Sign Up</Link>
+                </p>
+                </div>
             </div>
           </div>
         </div>
