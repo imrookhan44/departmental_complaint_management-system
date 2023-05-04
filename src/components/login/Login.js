@@ -25,9 +25,10 @@ function Login() {
     };
     loginUser(data)
       .then((res) => {
-        console.log("res in login:", res.data.message);
+        // console.log("res in login:", res.data);
         if (res.data.message === "user login successfully") {
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("email", res.data.email1);
           toast.success(res.data.message);
           navigate("/");
         } else {
@@ -78,14 +79,14 @@ function Login() {
                   </button>
                 </div>
                 <div className="d-flex justify-content-end">
-                <Link to="/forgetPassword">Forget Password</Link>
+                  <Link to="/forgetPassword">Forget Password</Link>
                 </div>
               </div>
               <div className="text-center mt-2">
                 <p>
                   Don't have an account? <Link to="/signup">Sign Up</Link>
                 </p>
-                </div>
+              </div>
             </div>
           </div>
         </div>

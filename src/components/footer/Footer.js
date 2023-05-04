@@ -3,9 +3,9 @@ import React from "react";
 function Footer() {
   return (
     <div>
-      <div className="container-fluid" style={{backgroundColor: "#0298a3"}}  >
+      <div className="container-fluid" style={{ backgroundColor: "#192F59" }}  >
         <footer className="py-3">
-          <ul className="nav justify-content-center pb-3 mb-3">
+          <ul className="nav justify-content-center ">
             <li className="nav-item">
               <a href="#" className="nav-link px-2 text-light">
                 Home
@@ -39,7 +39,7 @@ function Footer() {
               target="blank"
             >
               {" "}
-              © 2022 |  WUSCMS
+              © 2023 |  UOS
             </a>
           </p>
         </footer>

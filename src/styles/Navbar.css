@@ -1,6 +1,6 @@
 #mainHead {
     font-size: large;
-    font-weight: bold;
+    font-weight: 500;
     color: #fff;
     text-align: center;
     padding: 15px;
@@ -10,14 +10,16 @@
     color: #fff;
     text-decoration: none;
     font-size: small;
-    font-weight: bold;
+    font-weight: 500;
     gap: 1rem;
-    
+
 }
+
 #navLink:hover {
     /* color: rgb(0, 0, 0) !important; */
     border-bottom: 3px white solid !important;
 }
-#navLink:focus{
+
+#navLink:focus {
     border-bottom: 3px white solid !important;
 }

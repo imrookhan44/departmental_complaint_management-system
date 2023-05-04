@@ -7,12 +7,12 @@ function Home() {
     <div className="text-center " id="homeText">
       <Carousel />
       <div>
-        <div style={{ backgroundColor: "#0298a3", color: "white" }}>
-          <h1>
-            <b> Women University of Swabi Complaint Management System</b>
-          </h1>
+        <div style={{ backgroundColor: "#192F59", color: "white", padding: "10px" }}>
+          {/* <h1>
+            <b> University of Swabi Complaint Management System</b>
+          </h1> */}
           <p>
-            <br />{" "}
+            {" "}
             <b>Sign Up Today And You Can Leave Complaints on various issues.</b>{" "}
           </p>
         </div>

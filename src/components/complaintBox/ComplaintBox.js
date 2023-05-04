@@ -11,6 +11,8 @@ const success = () => {
   });
 };
 function ComplaintBox() {
+  let navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [complaintType, setComplaintType] = useState("");
@@ -30,6 +32,7 @@ function ComplaintBox() {
 
         if (res) {
           success();
+          navigate("/complaintStatus");
         } else {
           toast.error("Something went wrong")
         }
@@ -92,20 +95,20 @@ function ComplaintBox() {
               <option value="" selected>
                 Choose complaint type
               </option>
-              <option className="text-dark" value="Academics">
-                Academics
-              </option>
-              <option className="text-dark" value="Bus">
-                Bus
-              </option>
-              <option className="text-dark" value="Fee">
-                Fee
-              </option>
-              <option className="text-dark" value="Class">
+              <option className="text-dark" value="class">
                 Class
               </option>
-              <option className="text-dark" value="Teacher">
+              <option className="text-dark" value="teacher">
                 Teacher
+              </option>
+              <option className="text-dark" value="result">
+                Result
+              </option>
+              <option className="text-dark" value="exam">
+                Exam
+              </option>
+              <option className="text-dark" value="student">
+                Student
               </option>
               <option className="text-dark" value="Other">
                 Other
@@ -159,7 +162,7 @@ function ComplaintBox() {
                 Submit
               </button>
 
-      <ToastContainer />
+              <ToastContainer />
 
             </div>
           </div>
