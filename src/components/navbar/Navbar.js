@@ -82,7 +82,7 @@ function Header() {
               &nbsp;&nbsp;&nbsp;
               {localStorage.getItem("token") && (
                 <Link to="/complaintStatus" className="text-light mt-2" id="navLink">
-                  complaint Status
+                  complaints
                 </Link>
               )}&nbsp;&nbsp;&nbsp;
               {localStorage.getItem("token") ? (
