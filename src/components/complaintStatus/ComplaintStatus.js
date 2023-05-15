@@ -15,18 +15,12 @@ function ComplaintStatus() {
                     setComplaints(res.data.filter((complaint) => complaint.concernedPerson === "Head of department"))
                     console.log("complaints in complaintStatus:", complaints);
                 }
-                else if (userEmail === "vc@gmail.com") {
-                    setComplaints(res.data.filter((complaint) => complaint.concernedPerson === "vc"))
+                else if (userEmail === "coordinator@gmail.com") {
+                    setComplaints(res.data.filter((complaint) => complaint.concernedPerson === "Coordinator"))
                     console.log("complaints in complaintStatus:", complaints);
                 }
-                else if (userEmail === "provost@gmail.com") {
-                    setComplaints(res.data.filter((complaint) => complaint.concernedPerson === "Provost"))
-                }
-                else if (userEmail === "sport@gmail.com") {
-                    setComplaints(res.data.filter((complaint) => complaint.concernedPerson === "sports"))
-                }
-                else if (userEmail === "reg") {
-                    setComplaints(res.data.filter((complaint) => complaint.concernedPerson === "Registration department"))
+                else if (userEmail === "examController@gmail.com") {
+                    setComplaints(res.data.filter((complaint) => complaint.concernedPerson === "Exam controller"))
                 }
                 else if (userEmail === "iamadmin@gmail.com") {
                     setComplaints(res.data)
