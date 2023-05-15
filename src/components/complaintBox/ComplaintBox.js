@@ -124,21 +124,21 @@ function ComplaintBox() {
               value={concernedPerson}
               className="text-dark"
             >
-              <option value="" selected>
+              <option value="" selected disabled>
                 Choose complaint type
               </option>
               <option className="text-dark" value="Head of department">
                 Head of department
               </option>
-              <option className="text-dark" value="vc">
-                vc
+              <option className="text-dark" value="Coordinator">
+                Coordinator
               </option>
-              <option className="text-dark" value="Provost">
-                Provost
+              <option className="text-dark" value="Exam controller">
+                Exam controller
               </option>
-              <option className="text-dark" value="sports">
+              {/* <option className="text-dark" value="sports">
                 Sports
-              </option>
+              </option> */}
               <option className="text-dark" value="Other">
                 Other
               </option>
