@@ -4,7 +4,7 @@ import "./../../styles/Navbar.css";
 import { useNavigate, Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import './navbar.css'
 function Header() {
   let navigate = useNavigate();
   let userEmail = localStorage.getItem("email");
@@ -35,20 +35,28 @@ function Header() {
               // className="me-auto my-2  my-lg-0  offset-lg-10 "
               className={
                 `
-                ${localStorage.getItem("token") ? "offset-lg-7" : "offset-lg-10"
+                ${localStorage.getItem("token") ? "offset-lg-1" : "offset-lg-8"
                 }
                 `
               }
-              style={{ maxHeight: "100px" }}
-              navbarScroll
+
             >
               <Link to="/" className="text-light mt-2" id="navLink">
                 Home
-              </Link>&nbsp;&nbsp;&nbsp;
+              </Link>
               {
                 userEmail === "iamadmin@gmail.com" ? (
                   <Link to="/dashboard" className="text-light mt-2" id="navLink">
                     Dashboard
+                  </Link>
+                ) : (""
+
+                )
+              }
+              {
+                userEmail === "iamadmin@gmail.com" ? (
+                  <Link to="/newUsers" className="text-light mt-2" id="navLink">
+                    New Users
                   </Link>
                 ) : (""
 
@@ -60,14 +68,14 @@ function Header() {
                 <Link to="/login" className="text-light mt-2" id="navLink">
                   Login
                 </Link>
-              )}&nbsp;&nbsp;&nbsp;
+              )}
               {localStorage.getItem("token") ? (
                 ""
               ) : (
                 <Link to="/signup" className="text-light mt-2" id="navLink">
                   Register
                 </Link>
-              )}&nbsp;&nbsp;&nbsp;
+              )}
               {
                 userEmail === "iamadmin@gmail.com" ? "" :
 
@@ -79,22 +87,28 @@ function Header() {
                     )}
                   </>
               }
-              &nbsp;&nbsp;&nbsp;
+
               {localStorage.getItem("token") && (
                 <Link to="/complaintStatus" className="text-light mt-2" id="navLink">
-                  complaints
+                  complaint History
                 </Link>
-              )}&nbsp;&nbsp;&nbsp;
+              )}
+              {localStorage.getItem("token") && (
+                <Link to="/myComplaints" className="text-light mt-2" id="navLink">
+                  My complaints
+                </Link>
+              )}
+
               {localStorage.getItem("token") ? (
                 <button
                   onClick={() => Logout()}
-                  className="btn btn-primary  my-2 my-sm-0"
+                  className="btn btn-primary  my-2 my-sm-0" id="navLink"
                 >
                   Logout
                 </button>
               ) : (
                 ""
-              )}&nbsp;&nbsp;&nbsp;
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

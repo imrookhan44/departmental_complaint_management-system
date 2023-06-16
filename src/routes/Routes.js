@@ -7,6 +7,8 @@ import ComplaintBox from "../components/complaintBox/ComplaintBox";
 import ComplaintStatus from "../components/complaintStatus/ComplaintStatus";
 import ForgetPassword from "../components/ForgetPassword/ForgetPassword";
 import DashBoard from "../components/dashboard/Dashboard";
+import MyComplaints from "../components/myComplaints/MyComplaints";
+import NewUsers from "../components/newUsers/NewUsers";
 function Routess() {
   return (
     <div>
@@ -18,6 +20,8 @@ function Routess() {
         <Route exact path="/complaintStatus" element={<ComplaintStatus />} />
         <Route exact path="/forgetPassword" element={<ForgetPassword />} />
         <Route exact path="/dashboard" element={<DashBoard />} />
+        <Route exact path="/myComplaints" element={<MyComplaints />} />
+        <Route exact path="/newUsers" element={<NewUsers />} />
       </Routes>
     </div>
   );

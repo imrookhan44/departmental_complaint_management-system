@@ -12,12 +12,27 @@ const success = () => {
 };
 function ComplaintBox() {
   let navigate = useNavigate();
-
+  const userId = localStorage.getItem("userId")
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [complaintType, setComplaintType] = useState("");
   const [concernedPerson, setConcernedPerson] = useState("");
   const [complaintDetail, setComplaintDetail] = useState("");
+  const [showInput, setShowInput] = useState(false)
+
+  const handleChangeComplaintType = (event) => {
+    if (event.target.value === "Other") {
+      setShowInput(true)
+    }
+    else {
+      setShowInput(false)
+      setComplaintType(event.target.value)
+
+    }
+  }
+
+
+
 
   const complaint = async () => {
     const data = {
@@ -26,13 +41,14 @@ function ComplaintBox() {
       complaintType,
       concernedPerson,
       complaintDetail,
+      userId
     };
     registerComplaint(data)
       .then((res) => {
 
         if (res) {
           success();
-          navigate("/complaintStatus");
+          navigate("/myComplaints");
         } else {
           toast.error("Something went wrong")
         }
@@ -59,7 +75,7 @@ function ComplaintBox() {
           }}
         >
           <h1 style={{}} className="text-light text-center">
-            Complaint Box
+            Submit A Complaint
           </h1>
           <div id="form" style={{ marginLeft: "64px" }}>
             <label className="text-light">Name</label>
@@ -86,9 +102,7 @@ function ComplaintBox() {
             <select
               name=""
               id=""
-              onChange={(event) => {
-                setComplaintType(event.target.value);
-              }}
+              onChange={(e) => handleChangeComplaintType(e)}
               value={complaintType}
               className="text-dark"
             >
@@ -114,6 +128,9 @@ function ComplaintBox() {
                 Other
               </option>
             </select>
+            {
+              showInput && <input type="text" placeholder="Enter Complaint Type" onChange={(e) => setComplaintType(e.target.value)} value={complaintType} />
+            }
             <label className="text-light">Concerned Person</label>
             <select
               name=""

@@ -25,14 +25,15 @@ function Login() {
     };
     loginUser(data)
       .then((res) => {
-        // console.log("res in login:", res.data);
-        if (res.data.message === "user login successfully") {
+        console.log("res in login:", res.data.user);
+        if (res.data.message === "user login successfully" && res.data.user.status == true) {
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("email", res.data.email1);
+          localStorage.setItem("userId", res.data.user._id)
           toast.success(res.data.message);
           navigate("/");
         } else {
-          toast.error(res.data.message);
+          toast.error("error");
         }
       })
       .catch((error) => {

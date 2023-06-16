@@ -4,12 +4,13 @@ import { registerUser } from "./../../Api/index";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 function Signup() {
   let navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [registrationNumber, setRegistrationNumber] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -17,6 +18,7 @@ function Signup() {
     const data = {
       firstName,
       lastName,
+      registrationNumber,
       email,
       password,
       confirmPassword,
@@ -81,6 +83,15 @@ function Signup() {
                   setEmail(event.target.value);
                 }}
               />
+              <label>RegistrationNumber</label>
+              <input
+                type="number"
+                required
+                value={registrationNumber}
+                onChange={(event) => {
+                  setRegistrationNumber(event.target.value);
+                }}
+              />
               <label>Password</label>
               <input
                 type="password"
@@ -110,9 +121,9 @@ function Signup() {
               </div>
             </div>
             <div className="text-center mt-2">
-                <p>
+              <p>
                 Already Registered? <Link to="/login">Login</Link></p>
-                </div>
+            </div>
           </div>
         </div>
       </div>
